@@ -6,12 +6,64 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-default: #212529;
+  --color-muted: #6c757d;
+  --color-primary: #007bff;
+  --color-primary-active: #0069d9;
+  --color-white: #fff;
+}
+
 html {
   font-size: 10px;
 }
 
 body {
-  font: 2rem/1.4 sans-serif;
+  background-color: var(--color-white);
+  color: var(--color-default);
+  font: 300 2rem/1.4 'Lato', Helvetica, Arial, sans-serif;
   margin: 0;
-  padding: 0;
 }
+
+h1, h2, h3, h4, h5, h6, p, ul {
+  margin-top: 0;
+}
+
+a:link {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-primary-active);
+  text-decoration: underline;
+}
+
+
+/** LAYOUT */
+
+.container {
+  --main-max-width: 110rem;
+  --grid-gutter: minmax(1.5rem, 1fr);
+  --grid-main: minmax(0, var(--main-max-width));
+  --padding-vertical: 14rem;
+
+  display: grid;
+  grid-template-columns:
+    [full-start] var(--grid-gutter)
+    [main-start] var(--grid-main)
+    [main-end] var(--grid-gutter)
+    [full-end];
+  padding-bottom: var(--padding-vertical);
+  padding-top: var(--padding-vertical);
+}
+
+.container-narrow { --main-max-width: 80rem; }
+
+.container-padding-lg { --padding-vertical: 19rem; }
+.container-padding-sm { --padding-vertical: 11rem; }
+.container-padding-xs { --padding-vertical: 7rem; }
+.container-padding-none { --padding-vertical: 1rem; }
+
+.container > * { grid-column: main; }
+.container > .full-span { grid-column: full; }

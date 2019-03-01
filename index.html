@@ -4,10 +4,101 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Landing Page</title>
-  <link rel="stylesheet" href="styles/main.css">
+  <link href="styles/main.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
 </head>
 
 <body>
-  <h1>Hello world</h1>
+  <header class="container container-padding-none">
+    <h1><a href="#">Start Bootstrap</a></h1>
+    <a href="#">Sign In</a>
+  </header>
+
+  <main>
+    <section class="container container-narrow container-padding-lg hero">
+      <h1>Build a landing page for your business or project and generate more leads!</h1>
+      <form method="post">
+        <input type="email" placeholder="Enter your email...">
+        <button>Sign up!</button>
+      </form>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <h2>Features</h2>
+        <ul>
+          <li>
+            <h3>Fully Responsive</h3>
+            <p>This theme will look great on any device, no matter the size!</p>
+          </li>
+          <li>
+            <h3>Bootstrap 4 Ready?</h3>
+            <p>No, not really. This page doesn't use Bootstrap at all.</p>
+          </li>
+          <li>
+            <h3>Easy to Use</h3>
+            <p>Ready to use with your own content, or customize the source files!</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="gallery">
+        <section>
+          <h3>Fully Responsive Design</h3>
+          <p>When you use a theme created by Start Bootstrap, you know that your theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively.</p>
+        </section>
+        <section>
+          <h3>Updated For Bootstrap 4</h3>
+          <p>Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
+        </section>
+        <section>
+          <h3>Easy to Use &amp; Customize</h3>
+          <p>Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go.</p>
+        </section>
+      </div>
+
+    </section>
+
+    <section class="container container-padding-sm testimonials">
+      <h2>What people are saying...</h2>
+      <ul>
+        <li>
+          <h3>Margaret E.</h3>
+          <p>"This is fantastic! Thanks so much guys!"</p>
+        </li>
+        <li>
+          <h3>Fred S.</h3>
+          <p>"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
+        </li>
+        <li>
+          <h3>Sarah W.</h3>
+          <p>"Thanks so much for making these free resources available to us!"</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="container container-narrow container-padding-sm cta">
+      <h1>Ready to get started? Sign up now!</h1>
+      <form method="post">
+        <input type="email" placeholder="Enter your email...">
+        <button>Sign up!</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="container container-padding-xs">
+    <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Terms of Use</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+    <p><small>&copy; Your Website 2019. All Rights Reserved.</small></p>
+    <ul>
+      <li><a href="#">Facebook</a></li>
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">Instagram</a></li>
+    </ul>
+  </footer>
 </body>
 </html>
