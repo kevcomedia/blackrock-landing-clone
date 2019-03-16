@@ -1,4 +1,6 @@
-/** BASE STYLES */
+/* ======================================================================
+ * BASE STYLES
+ * ====================================================================== */
 
 *,
 *::before,
@@ -27,6 +29,11 @@ body {
   margin: 0;
 }
 
+/**
+ * Removal of top margin of common block elements. Vertical positioning is then
+ * done by changing the bottom margin (or top padding of a containing element)
+ * wherever needed.
+ */
 h1, h2, h3, h4, h5, h6, p, ul {
   margin-top: 0;
 }
@@ -41,11 +48,26 @@ a:hover {
   text-decoration: underline;
 }
 
+/* ======================================================================
+ * COMMON MODULES
+ * ====================================================================== */
 
-/** COMMON */
+/* Backgrounds
+ * ====================================================================== */
 
+/**
+ * For sections with a light gray background instead of white.
+ */
 .bg-light { background-color: var(--color-light); }
 
+/* Buttons
+ * ====================================================================== */
+
+/**
+ * Buttons on their own don't have color-related styles. Extend with
+ * `.btn-<type>` classes. Intended to be usable by `a`, `button`, and
+ * `input[type="button"]` elements.
+ */
 
 .btn {
   border-radius: 0.3rem;
@@ -56,26 +78,48 @@ a:hover {
   transition: all ease 0.3s;
   transition-property: background-color, color, box-shadow;
 }
+
+/**
+ * Prevent `a.btn` from showing underline on hover (as declared above).
+ */
 .btn:hover {
   text-decoration: none;
 }
+
+/** Button types */
 
 .btn-primary {
   background-color: var(--color-primary);
   color: var(--color-white);
 }
+
 .btn-primary:hover {
   background-color: var(--color-primary-hover);
   color: var(--color-white);
 }
+
 .btn-primary:focus {
   box-shadow: 0 0 0 0.3rem var(--color-primary-transparent);
 }
 
+/** Button sizes */
+
 .btn-sm { font-size: 1.6rem; }
 
+/* ======================================================================
+ * LAYOUT
+ * ====================================================================== */
 
-/** LAYOUT */
+/* Containers
+ * ====================================================================== */
+
+/**
+ * A container is supposed to be used for elements that span the width of the
+ * page, but provides some space around their content. There will always be some
+ * fixed amount of gutter around the content below a certain viewport width.
+ * Beyond that, the content stops expanding and the gutters start to expand.
+ * In other words containers breakout.
+ */
 
 .container {
   --main-max-width: 110rem;
@@ -95,21 +139,49 @@ a:hover {
 
 .container-narrow { --main-max-width: 80rem; }
 
+/** Direct children of `.container` are placed on the main grid column, unless
+ * the child is a `.full-span`. */
 .container > * { grid-column: main; }
 .container > .full-span { grid-column: full; }
+
+/* Vertical padding
+ * ====================================================================== */
+
+/**
+ * Utility classes for setting the vertical padding of elements. In the
+ * meantime, they're only used for modifying the vertical padding of
+ * `.container`s (which is probably a clumsy approach).
+ *
+ * By default a `.pd` has some sizeable amount of padding, but can be extended
+ * with `.pd-<size>` classes.
+ */
 
 .pd {
   --padding-vertical: 14rem;
   padding-bottom: var(--padding-vertical);
   padding-top: var(--padding-vertical);
 }
+
+/**
+ * Padding sizes
+ */
+
 .pd-lg { --padding-vertical: 19rem; }
 .pd-sm { --padding-vertical: 11rem; }
 .pd-xs { --padding-vertical: 7rem; }
 .pd-none { --padding-vertical: 1rem; }
 
+/* ======================================================================
+ * MODULES
+ * ====================================================================== */
 
-/** MODULES */
+/* Topbar
+ * ====================================================================== */
+
+/**
+ * The topbar contains the page's brand and a sign-in button, both of which are
+ * flushed to either side.
+ */
 
 .topbar {
   align-items: center;
@@ -117,11 +189,22 @@ a:hover {
   justify-content: space-between;
 }
 
+/**
+ * Brand styles. The brand also acts as a link to the site's home page (more
+ * accurately, it contains the link; the brand itself could be a heading).
+ *
+ * 1. Remove remaining vertical margin to vertically center in topbar.
+ */
+
 .brand {
   font-size: 2rem;
   font-weight: 400;
-  margin-bottom: 0;
+  margin-bottom: 0; /* 1 */
 }
+
+/**
+ * The brand link. It should look like regular text no matter what.
+ */
 
 .brand a { color: var(--color-default); }
 .brand a:hover { text-decoration: none; }
