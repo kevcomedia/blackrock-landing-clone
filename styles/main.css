@@ -8,9 +8,11 @@
 
 :root {
   --color-default: #212529;
+  --color-light: #f8f9fa;
   --color-muted: #6c757d;
   --color-primary: #007bff;
-  --color-primary-active: #0069d9;
+  --color-primary-transparent: rgba(0, 123, 255, 0.5);
+  --color-primary-hover: #0069d9;
   --color-white: #fff;
 }
 
@@ -29,15 +31,48 @@ h1, h2, h3, h4, h5, h6, p, ul {
   margin-top: 0;
 }
 
-a:link {
+a {
   color: var(--color-primary);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--color-primary-active);
+  color: var(--color-primary-hover);
   text-decoration: underline;
 }
+
+
+/** COMMON */
+
+.bg-light { background-color: var(--color-light); }
+
+
+.btn {
+  border-radius: 0.3rem;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  padding: 0.8rem 1.2rem;
+  transition: all ease 0.3s;
+  transition-property: background-color, color, box-shadow;
+}
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  color: var(--color-white);
+}
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.3rem var(--color-primary-transparent);
+}
+
+.btn-sm { font-size: 1.6rem; }
 
 
 /** LAYOUT */
@@ -60,10 +95,33 @@ a:hover {
 
 .container-narrow { --main-max-width: 80rem; }
 
-.container-padding-lg { --padding-vertical: 19rem; }
-.container-padding-sm { --padding-vertical: 11rem; }
-.container-padding-xs { --padding-vertical: 7rem; }
-.container-padding-none { --padding-vertical: 1rem; }
-
 .container > * { grid-column: main; }
 .container > .full-span { grid-column: full; }
+
+.pd {
+  --padding-vertical: 14rem;
+  padding-bottom: var(--padding-vertical);
+  padding-top: var(--padding-vertical);
+}
+.pd-lg { --padding-vertical: 19rem; }
+.pd-sm { --padding-vertical: 11rem; }
+.pd-xs { --padding-vertical: 7rem; }
+.pd-none { --padding-vertical: 1rem; }
+
+
+/** MODULES */
+
+.topbar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.brand a { color: var(--color-default); }
+.brand a:hover { text-decoration: none; }
