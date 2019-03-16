@@ -208,3 +208,27 @@ a:hover {
 
 .brand a { color: var(--color-default); }
 .brand a:hover { text-decoration: none; }
+
+/* Hero
+ * ====================================================================== */
+
+/**
+ * The fancy section that users see first.
+ *
+ * 1. Average color of the background image + the gray overlay.
+ * 2. Laying a linear-gradient of single rgba to darken the image.
+ */
+
+.hero {
+  --fallback-bg-color: #37587b; /* 1 */
+  --bg-image-darken: rgba(64,64,64,0.5);
+  background:
+    linear-gradient(0, var(--bg-image-darken), var(--bg-image-darken)), /* 2 */
+    var(--fallback-bg-color) center / cover no-repeat url('https://images.pexels.com/photos/636353/pexels-photo-636353.jpeg?auto=compress&cs=tinysrgb&w=1280&h=960');
+  color: var(--color-white);
+}
+
+.hero h1 {
+  line-height: 1.3;
+  text-align: center;
+}
