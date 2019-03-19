@@ -60,8 +60,47 @@ a:hover {
  */
 .bg-light { background-color: var(--color-light); }
 
-/* Buttons
+/* Form Controls
  * ====================================================================== */
+
+/**
+ * Buttons and input fields same some common styles, such as padding, border
+ * radius, etc. The page is only going to have a couple email fields, so there's
+ * no need to write classes for them.
+ *
+ * 1. Remove borders for `button`s and `input`s.
+ * 2. Inherit parent font styles for `button`s and `input`s (since they don't by
+ * default)
+ */
+
+input,
+.btn {
+  border: none; /* 1 */
+  border-radius: 0.5rem;
+  display: inline-block;
+  font-family: inherit; /* 2 */
+  font-size: 2rem; /* 2 */
+  font-weight: 400; /* 2 */
+  line-height: 1;
+  padding: 1.3rem 1.7rem;
+  transition: all ease 0.3s;
+}
+
+/**
+ * Input styles.
+ */
+
+input {
+  --border-color: #ced4da;
+  border: 0.1rem solid var(--border-color);
+  color: #495057;
+  transition-property: border-color, box-shadow;
+}
+
+input:focus {
+  --border-color: #80bdff;
+  box-shadow: 0 0 0.3rem var(--color-primary-transparent);
+}
 
 /**
  * Buttons on their own don't have color-related styles. Extend with
@@ -70,12 +109,7 @@ a:hover {
  */
 
 .btn {
-  border-radius: 0.3rem;
   cursor: pointer;
-  display: inline-block;
-  font-weight: 400;
-  padding: 0.8rem 1.2rem;
-  transition: all ease 0.3s;
   transition-property: background-color, color, box-shadow;
 }
 
