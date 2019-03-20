@@ -140,6 +140,66 @@ input:focus {
 
 .btn-sm { font-size: 1.6rem; }
 
+/* Forms
+ * ====================================================================== */
+
+/**
+ * The forms for the page are all inline forms that collapse to regular stacking
+ * layout when the viewport is narrow enough. Again there are only a few forms
+ * in the page (all of which have identical layouts), so there's no need for
+ * classes.
+ *
+ * The forms only have an input and a button as children.
+ *
+ * 1. Center form within container.
+ * 2. Button goes under input by default.
+ */
+
+form {
+  display: flex;
+  flex-wrap: wrap; /* 2 */
+  margin: auto; /* 1 */
+  max-width: 51rem;
+  width: 100%;
+}
+
+/** 1. Form elements take up full width by default. */
+
+form input,
+form .btn {
+  flex: 100%; /* 1 */
+}
+
+form input {
+  margin-bottom: 0.8rem;
+}
+
+/**
+ * 1. At >= 768px the form uses an inline layout.
+ */
+
+@media screen and (min-width: 768px) {
+  form {
+    flex-wrap: nowrap; /* 1 */
+    max-width: 57rem;
+  }
+
+  /**
+   * 1. The input takes up three times the horizontal space as the button.
+   * 2. Move spacing margin from bottom to right.
+   */
+
+  form input {
+    flex: 75%; /* 1 */
+    margin-bottom: 0; /* 2 */
+    margin-right: 1rem; /* 2 */
+  }
+
+  form .btn {
+    flex: 25%;
+  }
+}
+
 /* ======================================================================
  * LAYOUT
  * ====================================================================== */
