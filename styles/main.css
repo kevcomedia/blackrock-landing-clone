@@ -138,7 +138,10 @@ input:focus {
 
 /** Button sizes */
 
-.btn-sm { font-size: 1.6rem; }
+.btn-sm { 
+  font-size: 1.6rem;
+  padding: 1.1rem 1.3rem;
+}
 
 /* Forms
  * ====================================================================== */
