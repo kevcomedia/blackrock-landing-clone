@@ -321,10 +321,24 @@ form input {
 .hero {
   --fallback-bg-color: #37587b; /* 1 */
   --bg-image-darken: rgba(64,64,64,0.5);
+  --padding-vertical: var(--padding-md);
   background:
     linear-gradient(0, var(--bg-image-darken), var(--bg-image-darken)), /* 2 */
     var(--fallback-bg-color) center / cover no-repeat url('https://images.pexels.com/photos/636353/pexels-photo-636353.jpeg?auto=compress&cs=tinysrgb&w=1280&h=960');
   color: var(--color-white);
+  padding-bottom: var(--padding-vertical);
+  padding-top: var(--padding-vertical);
+}
+
+/**
+ * The hero section appears larger on wider viewports, and thus has larger
+ * vertical padding and text size.
+ */
+
+@media screen and (min-width: 768px) {
+  .hero {
+    --padding-vertical: var(--padding-lg);
+  }
 }
 
 .hero h1 {
