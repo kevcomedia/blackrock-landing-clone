@@ -16,6 +16,11 @@
   --color-primary-transparent: rgba(0, 123, 255, 0.5);
   --color-primary-hover: #0069d9;
   --color-white: #fff;
+  --padding-none: 1rem;
+  --padding-xs: 7rem;
+  --padding-sm: 11rem;
+  --padding-md: 14rem;
+  --padding-lg: 19rem;
 }
 
 html {
@@ -251,7 +256,7 @@ form input {
  */
 
 .pd {
-  --padding-vertical: 14rem;
+  --padding-vertical: var(--padding-md);
   padding-bottom: var(--padding-vertical);
   padding-top: var(--padding-vertical);
 }
@@ -260,10 +265,10 @@ form input {
  * Padding sizes
  */
 
-.pd-lg { --padding-vertical: 19rem; }
-.pd-sm { --padding-vertical: 11rem; }
-.pd-xs { --padding-vertical: 7rem; }
-.pd-none { --padding-vertical: 1rem; }
+.pd-lg { --padding-vertical: var(--padding-lg); }
+.pd-sm { --padding-vertical: var(--padding-sm); }
+.pd-xs { --padding-vertical: var(--padding-xs); }
+.pd-none { --padding-vertical: var(--padding-none); }
 
 /* ======================================================================
  * MODULES
