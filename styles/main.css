@@ -222,7 +222,6 @@ form input {
   --main-max-width: 110rem;
   --grid-gutter: minmax(1.5rem, 1fr);
   --grid-main: minmax(0, var(--main-max-width));
-  --padding-vertical: 14rem;
 
   display: grid;
   grid-template-columns:
@@ -230,8 +229,6 @@ form input {
     [main-start] var(--grid-main)
     [main-end] var(--grid-gutter)
     [full-end];
-  padding-bottom: var(--padding-vertical);
-  padding-top: var(--padding-vertical);
 }
 
 .container-narrow { --main-max-width: 80rem; }
