@@ -17,6 +17,7 @@
   --color-primary-hover: #0069d9;
   --color-white: #fff;
   --padding-none: 1rem;
+  --padding-xxs: 5rem;
   --padding-xs: 7rem;
   --padding-sm: 11rem;
   --padding-md: 14rem;
@@ -417,4 +418,98 @@ form input {
 
 .feature-strip li:hover .fs-icon {
   transform: scale(1.0667); /* 1 */
+}
+
+/* Feature rows
+ * ====================================================================== */
+
+/**
+ * A feature row is a row that consists of a decorative image and text content.
+ * On mobile the image is stacked on top of the text. On larger viewports, they
+ * are laid side by side, taking half of the row's width. The image alternates
+ * between being on the right half and being on the left half.
+ *
+ * A row always spans the page's full width.
+ *
+ * 1. Flex properties for image and text. When there's enough horizontal space,
+ * lay them side by side.
+ * 2. The row's image URL.
+ */
+
+.feature-row {
+  --bg-image: none; /* 2 */
+  --flex: 1 1 49.6rem; /* 1 */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/**
+ * 1. Put the image of every other row on the right side.
+ */
+
+.feature-row:nth-child(odd) {
+  flex-direction: row-reverse; /* 1 */
+}
+
+/**
+ * The image is placed on a pseudo-element. The image has no real semantic
+ * value, so it can be generated using CSS instead.
+ *
+ * 1. Apparently pseduo-elements cannot be targeted with the universal *
+ * selector, so the flex property has to be set directly, instead of using
+ * `.feature-row > *`.
+ * 2. Sensible minimum height when in stacking mode.
+ */
+
+.feature-row::before {
+  background: var(--bg-image) 0 0 / cover no-repeat;
+  content: '';
+  display: block;
+  flex: var(--flex); /* 1 */
+  min-height: 48rem; /* 2 */
+}
+
+.fr-1 {
+  --bg-image: url('https://images.pexels.com/photos/193004/pexels-photo-193004.jpeg?auto=compress&cs=tinysrgb&w=800&h=600');
+}
+.fr-2 {
+  --bg-image: url('https://images.pexels.com/photos/270366/pexels-photo-270366.jpeg?auto=compress&cs=tinysrgb&w=800&h=600');
+}
+.fr-3 {
+  --bg-image: url('https://images.pexels.com/photos/1148496/pexels-photo-1148496.jpeg?auto=compress&cs=tinysrgb&w=800&h=600');
+}
+
+/**
+ * The rows' text content.
+ *
+ * 1. Center vertically.
+ * 2. Slight padding on mobile.
+ */
+
+.fr-prose {
+  display: flex; /* 1 */
+  flex-direction: column; /* 1 */
+  flex: var(--flex);
+  justify-content: center; /* 1 */
+  padding: var(--padding-xxs); /* 2 */
+}
+
+/**
+ * 1. Add more padding for larger viewports.
+ */
+
+@media screen and (min-width: 768px) {
+  .fr-prose {
+    padding: var(--padding-sm); /* 1 */
+  }
+}
+
+.fr-prose h3 {
+  font-size: 3.2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.fr-prose p {
+  margin-bottom: 0;
 }
