@@ -257,6 +257,41 @@ form input {
 .container > * { grid-column: main; }
 .container > .full-span { grid-column: full; }
 
+/* Flexbar
+ * ====================================================================== */
+
+/**
+ * A flexbar is a wrapping flex container. It's designed for having three items
+ * in it.
+ *
+ * 1. Remove default `ul` styles.
+ * 2. Negative bottom margin to cancel the last item's bottom margin.
+ */
+
+.flexbar {
+  --item-gap: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style-type: none; /* 1 */
+  margin: 0 0 calc(-1 * var(--item-gap)); /* 1, 2 */
+  padding: 0; /* 1 */
+}
+
+/**
+ * 1. Bottom margin for when the items are stacked on top of each other. The
+ * last item's margin is cancelled by the parent's negative bottom margin.
+ * 2. Make sure the items have the same width every time.
+ * 3. Probably out of place, but both flexbars in the page have centered text.
+ */
+
+.flexbar-item {
+  margin: 0 auto var(--item-gap); /* 1 */
+  flex: 1 1 100%; /* 2 */
+  max-width: 32rem;
+  text-align: center; /* 3 */
+}
+
 /* Vertical padding
  * ====================================================================== */
 
@@ -371,31 +406,7 @@ form input {
 
 /**
  * The feature strip is a summary of features.
- *
- * 1. Remove default `ul` styles.
- * 2. Negative bottom margin to cancel the last item's bottom margin.
  */
-
-.feature-strip {
-  --item-gap: 5rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  list-style-type: none; /* 1 */
-  margin: 0 0 calc(-1 * var(--item-gap)); /* 1, 2 */
-  padding: 0; /* 1 */
-}
-
-/**
- * 1. Bottom margin for when the items are stacked on top of each other. The
- * last item's margin is cancelled by the parent's negative bottom margin.
- */
-
-.feature-strip li {
-  margin: 0 auto var(--item-gap); /* 1 */
-  max-width: 32rem;
-  text-align: center;
-}
 
 .feature-strip h3 {
   font-size: 2.8rem;
@@ -511,5 +522,28 @@ form input {
 }
 
 .fr-prose p {
+  margin-bottom: 0;
+}
+
+/* Testimonials
+ * ====================================================================== */
+
+/**
+ * List of testimonials with pictures.
+ */
+
+.testimonials h2 {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.testimonials h3 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.testimonials p {
+  font-size: 1.6rem;
   margin-bottom: 0;
 }
