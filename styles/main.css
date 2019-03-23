@@ -537,13 +537,43 @@ form input {
   margin-bottom: 5rem;
 }
 
-.testimonials h3 {
+/**
+ * A testimonial item is a vertical flex container. This is so the portrait in
+ * it can be put visually over the person's name, while keeping it below the
+ * name in the markup.
+ */
+
+.testimonial-item {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-item h3 {
   font-size: 2rem;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 
-.testimonials p {
+/**
+ * Portrait for the person making the testimonial.
+ *
+ * 1. Visually put the image on top of the name.
+ * 2. The images used intrinsically are 190x190. Just adding this here for good
+ * measure.
+ */
+
+.testimonial-item img {
+  border-radius: 50%;
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+  display: block;
+  height: auto; /* 2 */
+  margin-bottom: 2rem;
+  max-width: 19rem; /* 2 */
+  order: -1; /* 1 */
+}
+
+.testimonial-item p {
   font-size: 1.6rem;
   margin-bottom: 0;
 }
