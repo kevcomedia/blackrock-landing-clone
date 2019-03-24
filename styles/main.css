@@ -82,14 +82,14 @@ a:hover {
  * radius, etc. The page is only going to have a couple email fields, so there's
  * no need to write classes for them.
  *
- * 1. Remove borders for `button`s and `input`s.
  * 2. Inherit parent font styles for `button`s and `input`s (since they don't by
  * default)
  */
 
 input,
 .btn {
-  border: none; /* 1 */
+  --border-color: initial;
+  border: 0.1rem solid var(--border-color);
   border-radius: 0.5rem;
   display: inline-block;
   font-family: inherit; /* 2 */
@@ -106,7 +106,6 @@ input,
 
 input {
   --border-color: #ced4da;
-  border: 0.1rem solid var(--border-color);
   color: #495057;
   transition-property: border-color, box-shadow;
 }
@@ -123,8 +122,9 @@ input:focus {
  */
 
 .btn {
+  --border-color: transparent;
   cursor: pointer;
-  transition-property: background-color, color, box-shadow;
+  transition-property: border, background-color, color, box-shadow;
 }
 
 /**
@@ -137,11 +137,13 @@ input:focus {
 /** Button types */
 
 .btn-primary {
+  --border-color: var(--color-primary);
   background-color: var(--color-primary);
   color: var(--color-white);
 }
 
 .btn-primary:hover {
+  --border-color: var(--color-primary-hover);
   background-color: var(--color-primary-hover);
   color: var(--color-white);
 }
