@@ -585,3 +585,127 @@ form input {
   font-size: 1.6rem;
   margin-bottom: 0;
 }
+
+/* Page Footer
+ * ====================================================================== */
+
+/**
+ * The footer contains additional navigation, copyright info, and social media
+ * links.
+ *
+ * 1. The contents stack on mobile, and are side by side on larger viewports.
+ */
+
+.page-footer {
+  display: flex;
+  flex-direction: column; /* 1 */
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+/**
+ * The left part of the footer (which contains the text) are centered on mobile.
+ */
+
+.page-footer-left {
+  text-align: center; /* 1 */
+}
+
+/**
+ * Both the footer nav and social media links are horizontal lists stripped off
+ * their default styles.
+ */
+
+.footer-nav,
+.social-media-links {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Navigation links inside the footer. The links are separated by a decorative
+ * dot:
+ *
+ *   About  ⋅  Contact  ⋅  ...
+ *
+ * 1. Horizontal space between the links and dots. Variable is defined here so
+ * the dots (which are actually pseudo-elements) can access the value.
+ * 2. Vertical space between links and copyright info.
+ */
+
+.footer-nav {
+  --spacer: 1.2rem; /* 1 */
+  margin-bottom: 0.8rem; /* 2 */
+  flex-wrap: wrap;
+}
+
+/**
+ * 1. Each link item is set to flex, so the dots are horizontally aligned with
+ * the text.
+ */
+
+.footer-nav li {
+  display: flex; /* 1 */
+}
+
+/**
+ * 1. All links except the last are given the spacer.
+ */
+
+.footer-nav li:not(:last-child) {
+  margin-right: var(--spacer); /* 1 */
+}
+
+/**
+ * 1. The decorative dots are also given the same amount of spacer on the other
+ * side.
+ */
+
+.footer-nav li:not(:last-child)::after {
+  content: '⋅';
+  display: block;
+  margin-left: var(--spacer); /* 1 */
+}
+
+.footer-copyright {
+  color: var(--color-muted);
+}
+
+/**
+ * I wanted to try the same technique I used for the feature rows, but since
+ * the text herein are centered on mobile and left-aligned otherwise, I opted
+ * for the media-query approach instead.
+ */
+
+@media screen and (min-width: 992px) {
+  .page-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .page-footer-left {
+    text-align: left;
+  }
+
+  /**
+   * 1. Remove copyright bottom margin so as not to mess up the footer contents'
+   * vertical centering.
+   */
+  
+  .footer-copyright {
+    margin-bottom: 0; /* 1 */
+  }
+}
+
+.social-media-links {
+  --item-size: 3.2rem;
+  font-size: var(--item-size);
+}
+
+.social-media-links li:not(:last-child) {
+  margin-right: var(--item-size);
+}
