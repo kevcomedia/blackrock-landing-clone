@@ -357,22 +357,22 @@ form input {
 .brand a { color: var(--color-default); }
 .brand a:hover { text-decoration: none; }
 
-/* Hero
+/* CTA
  * ====================================================================== */
 
 /**
- * The fancy section that users see first.
+ * The fancy section with large text and a signup form.
  *
  * 1. Average color of the background image + the gray overlay.
  * 2. Laying a linear-gradient of single rgba to darken the image.
  */
 
-.hero {
+.cta {
   --fallback-bg-color: #37587b; /* 1 */
   --bg-image-darken: rgba(64,64,64,0.5);
 
   --font-size: 3.2rem;
-  --padding-vertical: var(--padding-md);
+  --padding-vertical: var(--padding-sm);
 
   background:
     linear-gradient(0, var(--bg-image-darken), var(--bg-image-darken)), /* 2 */
@@ -383,18 +383,26 @@ form input {
 }
 
 /**
- * The hero section appears larger on wider viewports, and thus has larger
+ * The primary CTA looks roomier, and has larger padding.
+ */
+
+.cta-primary {
+  --padding-vertical: var(--padding-md);
+}
+
+/**
+ * The primary CTA appears larger on wider viewports, and thus has larger
  * vertical padding and text size.
  */
 
 @media screen and (min-width: 768px) {
-  .hero {
+  .cta-primary {
     --padding-vertical: var(--padding-lg);
     --font-size: 4.8rem;
   }
 }
 
-.hero h1 {
+.cta h1 {
   font-size: var(--font-size);
   font-weight: 700;
   line-height: 1.2;
